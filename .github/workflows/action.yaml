@@ -15,6 +15,10 @@ jobs:
   deploy_project:
       runs-on: ubuntu-latest
       needs: build_and_push_project
+      env:
+        DB_USER: ${{ secrets.DB_USER }}
+        DB_PASSWORD: ${{ secrets.PASSWORD }}
+        DB_NAME: ${{ secrets.DB_NAME }}
       steps:
         - name: clone code
           uses: actions/checkout@v3
@@ -26,8 +30,8 @@ jobs:
           uses: appleboy/scp-action@master
           with:
             host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME}}
-            password: ${{ secrets.PASSWORD}}
+            username: ${{ secrets.USERNAME }}
+            password: ${{ secrets.PASSWORD }}
             source: "deploy/docker-compose.yaml"
             target: "flask_app_ci"
             strip_components: 1
