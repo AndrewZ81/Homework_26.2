@@ -5,4 +5,4 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: clone my code
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
