@@ -17,7 +17,7 @@ jobs:
       needs: build_and_push_project
       env:
         DB_USER: ${{ secrets.DB_USER }}
-        DB_PASSWORD: ${{ secrets.PASSWORD }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         DB_NAME: ${{ secrets.DB_NAME }}
       steps:
         - name: clone code
