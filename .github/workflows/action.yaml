@@ -4,5 +4,7 @@ jobs:
   build_and_push_project:
       runs-on: ubuntu-latest
       steps:
-        - name: clone my code
+        - name: clone code
           uses: actions/checkout@v3
+        - name: docker build
+          run: docker - build -t azaiko/azaiko_skypro_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
