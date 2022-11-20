@@ -1,0 +1,8 @@
+name: My first app deploy
+on: [push]
+jobs:
+  build and push project:
+      runs-on: ubuntu-latest
+      steps:
+        - name: clone my code
+          uses: actions/checkout@v2
